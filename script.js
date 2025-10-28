@@ -79,19 +79,41 @@ animatedElements.forEach(el => {
 const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Get form values
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const message = contactForm.querySelector('textarea').value;
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
         
-        // Show success message (in a real app, you'd send this to a server)
-        alert(`Thank you, ${name}! Your message has been received. We'll get back to you at ${email} soon.`);
+        // Show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
         
-        // Reset form
-        contactForm.reset();
+        try {
+            // Send to Formspree
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                alert('✅ Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
+                contactForm.reset();
+            } else {
+                throw new Error('Submission failed');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('❌ Something went wrong. Please email us directly at c.satendra1149@gmail.com');
+        } finally {
+            // Reset button
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
     });
 }
 
@@ -181,4 +203,5 @@ console.log(
 console.log(
     '%cYour Home, Your Flavours, Delivered.',
     'color: #FF6B35; font-size: 16px; font-weight: bold;'
+
 );
