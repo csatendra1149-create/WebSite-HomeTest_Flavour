@@ -379,9 +379,26 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- Modal HTML - Add this BEFORE closing </body> tag -->
+    <div id="uspModal" class="modal">
+        <div class="modal-overlay" onclick="closeUSPModal()"></div>
+         <div class="modal-content">
+        <span class="close-modal" onclick="closeUSPModal()">&times;</span>
+        <div class="modal-icon" id="modalIcon"></div>
+        <h2 id="modalTitle"></h2>
+        <div class="modal-details" id="modalDetails"></div>
+        <div class="modal-stats" id="modalStats"></div>
+        <button class="modal-cta" onclick="scrollToDownload()">Get Started</button>
+    </div>
+</div>
+
+
+
+    
 </body>
 
 </html>
+
 
 
 
