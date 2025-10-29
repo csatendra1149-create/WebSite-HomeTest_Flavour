@@ -205,3 +205,120 @@ console.log(
     'color: #FF6B35; font-size: 16px; font-weight: bold;'
 
 );
+// ===== USP MODAL FUNCTIONALITY =====
+const uspData = {
+    'Personalized Meals': {
+        icon: '❤️',
+        details: [
+            'Custom dietary preferences and restrictions catered to',
+            'Family recipes passed down through generations',
+            'No preservatives, MSG, or artificial ingredients',
+            'Fresh ingredients sourced daily from local markets',
+            'Made with love by your own family members',
+            'Special occasion meals for birthdays and celebrations'
+        ],
+        stats: '📊 Over 10,000 personalized meals delivered monthly'
+    },
+    'City-wide Service': {
+        icon: '🌆',
+        details: [
+            'Currently serving Kathmandu, Birgunj, and Pokhara',
+            'Expanding to 5 more cities by end of 2025',
+            'Average delivery time: 45 minutes or less',
+            'Real-time GPS tracking for all orders',
+            'Partnership with 200+ reliable local delivery partners',
+            '98% on-time delivery rate'
+        ],
+        stats: '🚀 3 cities • 500+ daily deliveries • 98% on-time'
+    },
+    'Supports Home Chefs': {
+        icon: '👩‍🍳',
+        details: [
+            'Empowers home cooks to earn sustainable income',
+            'No commercial kitchen or license required',
+            'Completely flexible working hours',
+            'Fair and transparent compensation model',
+            'Community of 200+ registered home chefs',
+            'Free training and recipe sharing sessions'
+        ],
+        stats: '👨‍👩‍👧 Supporting 200+ families across Nepal'
+    },
+    'Healthier Choice': {
+        icon: '🥗',
+        details: [
+            '30-40% more affordable than restaurant delivery',
+            'Completely free from MSG and artificial flavors',
+            'Nutritious home-cooked meals with balanced portions',
+            'Detailed calorie and nutrition information provided',
+            'Support for dietary needs: vegan, diabetic, etc.',
+            'Fresh ingredients, no frozen or pre-packaged food'
+        ],
+        stats: '💰 Save ₹500+ per week compared to restaurants'
+    },
+    'Emotional Connection': {
+        icon: '🤝',
+        details: [
+            'Stay connected to family food traditions',
+            'Share meals with loved ones working remotely',
+            'Send surprise meals for special occasions',
+            'Optional video messages included with deliveries',
+            'Build stronger family bonds through food',
+            'Reminds you of home even when far away'
+        ],
+        stats: '⭐ 95% customer satisfaction • 4.8/5 rating'
+    }
+};
+
+// Add click handlers to all USP cards
+document.querySelectorAll('.usp-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const title = card.getAttribute('data-title');
+        showUSPModal(title);
+    });
+});
+
+function showUSPModal(title) {
+    const data = uspData[title];
+    if (!data) return;
+    
+    const modal = document.getElementById('uspModal');
+    
+    // Populate modal content
+    document.getElementById('modalIcon').textContent = data.icon;
+    document.getElementById('modalTitle').textContent = title;
+    
+    // Create details list
+    const detailsList = data.details.map(detail => `<li>${detail}</li>`).join('');
+    document.getElementById('modalDetails').innerHTML = `<ul>${detailsList}</ul>`;
+    
+    // Add stats
+    document.getElementById('modalStats').textContent = data.stats;
+    
+    // Show modal with animation
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeUSPModal() {
+    const modal = document.getElementById('uspModal');
+    modal.classList.remove('show');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+function scrollToDownload() {
+    closeUSPModal();
+    setTimeout(() => {
+        document.getElementById('download').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+    }, 300);
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeUSPModal();
+    }
+});
+
