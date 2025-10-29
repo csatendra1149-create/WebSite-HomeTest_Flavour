@@ -75,7 +75,7 @@ animatedElements.forEach(el => {
     observer.observe(el);
 });
 
-// ===== CONTACT FORM SUBMISSION =====
+/// ===== CONTACT FORM SUBMISSION =====
 const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
@@ -116,7 +116,6 @@ if (contactForm) {
         }
     });
 }
-
 // ===== STATS COUNTER ANIMATION =====
 const stats = document.querySelectorAll('.stat-number');
 let animated = false;
@@ -203,8 +202,9 @@ console.log(
 console.log(
     '%cYour Home, Your Flavours, Delivered.',
     'color: #FF6B35; font-size: 16px; font-weight: bold;'
-
 );
+
+
 // ===== USP MODAL FUNCTIONALITY =====
 const uspData = {
     'Personalized Meals': {
@@ -321,4 +321,5 @@ document.addEventListener('keydown', (e) => {
         closeUSPModal();
     }
 });
+
 
