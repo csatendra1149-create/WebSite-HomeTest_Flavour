@@ -10,70 +10,64 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <div class="logo-icon">🏠</div>
-                <span class="logo-text">HomeTaste Flavours</span>
-            </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span>🏠</span>
+                <span>HomeTaste Flavours</span>
+            </a>
+            <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#features">Features</a></li>
+                <li><a href="#cities">Cities</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#download" class="btn-primary-small">Download App</a></li>
+                <li><a href="#download" class="cta-btn">Download App</a></li>
             </ul>
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container hero-container">
+    <section class="hero">
+        <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">
-                    Your Home, Your Flavours, <span class="highlight">Delivered</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Bringing fresh, homemade meals from your kitchen to your office—connecting families and professionals throughout Nepal.
-                </p>
+                <h1>Your Home, Your Flavours, Delivered</h1>
+                <p>Bringing fresh, homemade meals from your kitchen to your office. Connecting families and professionals throughout Nepal.</p>
                 <div class="hero-buttons">
                     <a href="#download" class="btn-primary">Download Now</a>
                     <a href="#how-it-works" class="btn-secondary">Learn More</a>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">1000+</div>
-                        <div class="stat-label">Happy Users</div>
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Happy Users</span>
                     </div>
-                    <div class="stat">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Cities Covered</div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Cities Covered</span>
                     </div>
-                    <div class="stat">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Daily Deliveries</div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Daily Deliveries</span>
                     </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="hero-illustration">
-                    <div class="floating-card card-1">
-                        <div class="card-emoji">🍛</div>
-                        <div class="card-text">Home Cooked</div>
-                    </div>
-                    <div class="floating-card card-2">
-                        <div class="card-emoji">🚴</div>
-                        <div class="card-text">Fast Delivery</div>
-                    </div>
-                    <div class="floating-card card-3">
-                        <div class="card-emoji">💚</div>
-                        <div class="card-text">Healthy & Fresh</div>
-                    </div>
+            <div class="hero-visual">
+                <div class="floating-element">
+                    <span class="float-icon">🍛</span>
+                    <span class="float-text">Home Cooked</span>
+                </div>
+                <div class="floating-element">
+                    <span class="float-icon">🚴</span>
+                    <span class="float-text">Fast Delivery</span>
+                </div>
+                <div class="floating-element">
+                    <span class="float-icon">💚</span>
+                    <span class="float-text">Healthy & Fresh</span>
                 </div>
             </div>
         </div>
@@ -84,20 +78,18 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">About HomeTaste Flavours</h2>
-                <p class="section-subtitle">
-                    A smart food delivery platform designed for Nepali professionals, office workers, and families
-                </p>
+                <p class="section-subtitle">A smart food delivery platform designed for Nepali professionals, office workers, and families</p>
             </div>
             <div class="about-content">
                 <p class="about-text">
-                    HomeTaste Flavours is revolutionizing food delivery in Nepal by connecting home kitchens with workplaces. We deliver fresh, homemade meals across major cities like Birgunj and Kathmandu—bringing the taste and comfort of home straight to your office. No more missing home-cooked meals during your busy workday!
+                    HomeTaste Flavours is revolutionizing food delivery in Nepal by connecting home kitchens with workplaces. We deliver fresh, homemade meals across major cities like Kathmandu, Birgunj, and Pokhara—bringing the taste and comfort of home straight to your office. No more missing home-cooked meals during your busy workday!
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Target Users Section -->
-    <section class="target-users">
+    <!-- Who We Serve -->
+    <section class="users">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Who We Serve</h2>
@@ -105,383 +97,367 @@
             </div>
             <div class="users-grid">
                 <div class="user-card">
-                    <div class="user-icon">👔</div>
+                    <span class="user-icon">👔</span>
                     <h3 class="user-title">Office Workers</h3>
-                    <p class="user-description">
-                        Professionals working away from home who miss the taste and comfort of a home-cooked meal.
-                    </p>
+                    <p class="user-desc">Professionals working away from home who miss the taste and comfort of a home-cooked meal.</p>
                 </div>
                 <div class="user-card">
-                    <div class="user-icon">👨‍👩‍👧‍👦</div>
+                    <span class="user-icon">👨‍👩‍👧‍👦</span>
                     <h3 class="user-title">Urban Families</h3>
-                    <p class="user-description">
-                        Families who cook at home and want to send meals to their loved ones at work.
-                    </p>
+                    <p class="user-desc">Families who cook at home and want to send meals to their loved ones at work.</p>
                 </div>
                 <div class="user-card">
-                    <div class="user-icon">🚴‍♂️</div>
+                    <span class="user-icon">🚴‍♂️</span>
                     <h3 class="user-title">Delivery Partners</h3>
-                    <p class="user-description">
-                        Local individuals who handle pickups and ensure timely delivery of fresh meals.
-                    </p>
+                    <p class="user-desc">Local individuals who handle pickups and ensure timely delivery of fresh meals.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
+    <!-- How It Works -->
     <section id="how-it-works" class="how-it-works">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">How It Works</h2>
                 <p class="section-subtitle">Simple steps to enjoy home-cooked meals at your workplace</p>
             </div>
-            <div class="steps-container">
-                <div class="step">
+            <div class="steps-grid">
+                <div class="step-card">
                     <div class="step-number">1</div>
-                    <div class="step-icon">📱</div>
+                    <span class="step-icon">📱</span>
                     <h3 class="step-title">Register</h3>
-                    <p class="step-description">Download the app, sign up, and add your home & office addresses</p>
+                    <p class="step-desc">Download the app, sign up, and add your home & office addresses</p>
                 </div>
-                <div class="step">
+                <div class="step-card">
                     <div class="step-number">2</div>
-                    <div class="step-icon">🍽️</div>
+                    <span class="step-icon">🍽️</span>
                     <h3 class="step-title">Add Meals</h3>
-                    <p class="step-description">Home kitchen uploads daily meal details or schedule</p>
+                    <p class="step-desc">Home kitchen uploads daily meal details or schedule</p>
                 </div>
-                <div class="step">
+                <div class="step-card">
                     <div class="step-number">3</div>
-                    <div class="step-icon">🛒</div>
+                    <span class="step-icon">🛒</span>
                     <h3 class="step-title">Place Order</h3>
-                    <p class="step-description">Customer selects meal & delivery time</p>
+                    <p class="step-desc">Customer selects meal & delivery time</p>
                 </div>
-                <div class="step">
+                <div class="step-card">
                     <div class="step-number">4</div>
-                    <div class="step-icon">🔔</div>
+                    <span class="step-icon">🔔</span>
                     <h3 class="step-title">Assign Partner</h3>
-                    <p class="step-description">System notifies a nearby delivery partner</p>
+                    <p class="step-desc">System notifies a nearby delivery partner</p>
                 </div>
-                <div class="step">
+                <div class="step-card">
                     <div class="step-number">5</div>
-                    <div class="step-icon">🚴</div>
+                    <span class="step-icon">🚴</span>
                     <h3 class="step-title">Pickup & Delivery</h3>
-                    <p class="step-description">Partner collects from home kitchen and delivers to office</p>
+                    <p class="step-desc">Partner collects from home kitchen and delivers to office</p>
                 </div>
-                <div class="step">
+                <div class="step-card">
                     <div class="step-number">6</div>
-                    <div class="step-icon">😋</div>
+                    <span class="step-icon">😋</span>
                     <h3 class="step-title">Enjoy!</h3>
-                    <p class="step-description">Enjoy a freshly delivered home-cooked meal</p>
+                    <p class="step-desc">Enjoy a freshly delivered home-cooked meal</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Key Features Section -->
+    <!-- Features -->
     <section id="features" class="features">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Key Features (MVP)</h2>
+                <h2 class="section-title">Key Features</h2>
                 <p class="section-subtitle">Everything you need for seamless meal delivery</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🔐</div>
+                    <span class="feature-icon">🔐</span>
                     <h3 class="feature-title">Secure Login</h3>
-                    <p class="feature-description">User registration & secure login system</p>
+                    <p class="feature-desc">User registration & secure login system</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">➕</div>
+                    <span class="feature-icon">➕</span>
                     <h3 class="feature-title">Add Meals</h3>
-                    <p class="feature-description">Add meals from home kitchen easily</p>
+                    <p class="feature-desc">Add meals from home kitchen easily</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📅</div>
+                    <span class="feature-icon">📅</span>
                     <h3 class="feature-title">Schedule Orders</h3>
-                    <p class="feature-description">Schedule & manage delivery orders</p>
+                    <p class="feature-desc">Schedule & manage delivery orders</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📍</div>
+                    <span class="feature-icon">📍</span>
                     <h3 class="feature-title">Real-time Tracking</h3>
-                    <p class="feature-description">Track your delivery in real-time</p>
+                    <p class="feature-desc">Track your delivery in real-time</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
+                    <span class="feature-icon">📊</span>
                     <h3 class="feature-title">Partner Dashboard</h3>
-                    <p class="feature-description">Dedicated dashboard for delivery partners</p>
+                    <p class="feature-desc">Dedicated dashboard for delivery partners</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔔</div>
+                    <span class="feature-icon">🔔</span>
                     <h3 class="feature-title">Push Notifications</h3>
-                    <p class="feature-description">Stay updated with push notifications</p>
+                    <p class="feature-desc">Stay updated with push notifications</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- USP Section -->
-    <section class="usp">
+    <!-- Cities We Serve -->
+    <section id="cities" class="cities">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cities We Serve</h2>
+                <p class="section-subtitle">Expanding across Nepal to bring home flavours everywhere</p>
+            </div>
+            <div class="cities-grid">
+                <div class="city-card active">
+                    <span class="city-icon">🏙️</span>
+                    <h3 class="city-name">Kathmandu</h3>
+                    <p class="city-desc">Capital city with full service coverage</p>
+                    <span class="city-badge badge-active">✓ Active Now</span>
+                </div>
+                <div class="city-card active">
+                    <span class="city-icon">🌆</span>
+                    <h3 class="city-name">Birgunj</h3>
+                    <p class="city-desc">Gateway to Nepal - industrial hub</p>
+                    <span class="city-badge badge-active">✓ Active Now</span>
+                </div>
+                <div class="city-card active">
+                    <span class="city-icon">🏔️</span>
+                    <h3 class="city-name">Pokhara</h3>
+                    <p class="city-desc">Scenic lakeside city</p>
+                    <span class="city-badge badge-active">✓ Active Now</span>
+                </div>
+                <div class="city-card coming">
+                    <span class="city-icon">🌄</span>
+                    <h3 class="city-name">Biratnagar</h3>
+                    <p class="city-desc">Eastern Nepal's commercial center</p>
+                    <span class="city-badge badge-coming">Coming Soon</span>
+                </div>
+                <div class="city-card coming">
+                    <span class="city-icon">🏛️</span>
+                    <h3 class="city-name">Lalitpur</h3>
+                    <p class="city-desc">Cultural heritage city</p>
+                    <span class="city-badge badge-coming">Coming Soon</span>
+                </div>
+                <div class="city-card coming">
+                    <span class="city-icon">🌾</span>
+                    <h3 class="city-name">Bharatpur</h3>
+                    <p class="city-desc">Central Nepal's educational hub</p>
+                    <span class="city-badge badge-coming">Coming Soon</span>
+                </div>
+            </div>
+
+            <!-- Expansion Section -->
+            <div class="expansion-box">
+                <div class="expansion-content">
+                    <h3 class="expansion-title">🗺️ More Cities Coming Soon!</h3>
+                    <p class="expansion-subtitle">
+                        We're rapidly expanding! From Kathmandu Valley to Birgunj and beyond, we're bringing home-cooked meals to every corner of Nepal.
+                    </p>
+
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <span class="stat-value">75+</span>
+                            <span class="stat-text">Districts in Nepal</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value">15+</span>
+                            <span class="stat-text">Cities Planned</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value">2025</span>
+                            <span class="stat-text">Major Expansion</span>
+                        </div>
+                    </div>
+
+                    <div class="request-container">
+                        <h4 class="request-title">🎯 Request Your City</h4>
+                        <p class="request-subtitle">Don't see your city? Tell us where you'd like HomeTaste Flavours next!</p>
+
+                        <div class="city-suggestions">
+                            <span class="suggestion-chip" onclick="fillCityName('Janakpur')">Janakpur</span>
+                            <span class="suggestion-chip" onclick="fillCityName('Nepalgunj')">Nepalgunj</span>
+                            <span class="suggestion-chip" onclick="fillCityName('Bhaktapur')">Bhaktapur</span>
+                            <span class="suggestion-chip" onclick="fillCityName('Itahari')">Itahari</span>
+                            <span class="suggestion-chip" onclick="fillCityName('Dharan')">Dharan</span>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="cityRequestInput" 
+                                class="city-input" 
+                                placeholder="Enter your city (e.g., Kathmandu, Birgunj)..."
+                            >
+                            <button class="submit-button" onclick="submitCityRequest()">Submit</button>
+                        </div>
+
+                        <div id="successMsg" class="success-message">
+                            ✅ Thank you! We'll notify you when HomeTaste Flavours launches in your city!
+                        </div>
+                    </div>
+
+                    <div class="expansion-footer">
+                        <p><strong>🚀 Goal:</strong> Launch in 5+ new cities by end of 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Why Choose Us?</h2>
                 <p class="section-subtitle">Unique advantages that set us apart</p>
             </div>
-            <div class="usp-grid">
-                <div class="usp-card" data-title="Personalized Meals">
-                    <div class="usp-icon">❤️</div>
-                    <h3 class="usp-title">Personalized Meals</h3>
-                    <p class="usp-description">Meals from your own home kitchen, made with love</p>
-                    <div class="card-hint">Click to learn more →</div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">❤️</span>
+                    <h3 class="benefit-title">Made with Love</h3>
+                    <p class="benefit-desc">Meals from your own home kitchen, prepared with care and love</p>
                 </div>
-                <div class="usp-card" data-title="City-wide Service">
-                    <div class="usp-icon">🌆</div>
-                    <h3 class="usp-title">City-wide Service</h3>
-                    <p class="usp-description">Available across major Nepali cities</p>
-                    <div class="card-hint">Click to learn more →</div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🌆</span>
+                    <h3 class="benefit-title">City-wide Service</h3>
+                    <p class="benefit-desc">Available across major Nepali cities and rapidly expanding</p>
                 </div>
-                <div class="usp-card" data-title="Supports Home Chefs">
-                    <div class="usp-icon">👩‍🍳</div>
-                    <h3 class="usp-title">Supports Home Chefs</h3>
-                    <p class="usp-description">Not just restaurants - family-prepared food</p>
-                    <div class="card-hint">Click to learn more →</div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">👩‍🍳</span>
+                    <h3 class="benefit-title">Supports Home Chefs</h3>
+                    <p class="benefit-desc">Not restaurants - real family-prepared food</p>
                 </div>
-                <div class="usp-card" data-title="Healthier Choice">
-                    <div class="usp-icon">🥗</div>
-                    <h3 class="usp-title">Healthier Choice</h3>
-                    <p class="usp-description">More affordable & healthier than restaurant meals</p>
-                    <div class="card-hint">Click to learn more →</div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">💰</span>
+                    <h3 class="benefit-title">Affordable & Healthy</h3>
+                    <p class="benefit-desc">More economical and nutritious than restaurant meals</p>
                 </div>
-                <div class="usp-card" data-title="Emotional Connection">
-                    <div class="usp-icon">🤝</div>
-                    <h3 class="usp-title">Emotional Connection</h3>
-                    <p class="usp-description">Builds connection to home and family</p>
-                    <div class="card-hint">Click to learn more →</div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🤝</span>
+                    <h3 class="benefit-title">Family Connection</h3>
+                    <p class="benefit-desc">Builds connection to home and family through food</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section id="download" class="cta">
-        <div class="container cta-container">
-            <h2 class="cta-title">Ready to Taste Home?</h2>
-            <p class="cta-subtitle">Download HomeTaste Flavours today and never miss a home-cooked meal</p>
-            <div class="cta-buttons">
-                <a href="#" class="download-btn">
-                    <span class="download-icon">📱</span>
-                    <div class="download-text">
-                        <span class="download-small">Download on</span>
-                        <span class="download-large">App Store</span>
-                    </div>
-                </a>
-                <a href="#" class="download-btn">
-                    <span class="download-icon">🤖</span>
-                    <div class="download-text">
-                        <span class="download-small">Get it on</span>
-                        <span class="download-large">Google Play</span>
-                    </div>
-                </a>
+    <section id="download" class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Taste Home?</h2>
+                <p>Download HomeTaste Flavours today and never miss a home-cooked meal</p>
+                <div class="download-buttons">
+                    <a href="#" class="download-btn">
+                        <span class="download-icon">📱</span>
+                        <div class="download-info">
+                            <span class="download-small">Download on</span>
+                            <span class="download-large">App Store</span>
+                        </div>
+                    </a>
+                    <a href="#" class="download-btn">
+                        <span class="download-icon">🤖</span>
+                        <div class="download-info">
+                            <span class="download-small">Get it on</span>
+                            <span class="download-large">Google Play</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Get In Touch</h2>
                 <p class="section-subtitle">Have questions? We'd love to hear from you</p>
             </div>
-            <div class="contact-content">
+            <div class="contact-wrapper">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
+                    <div class="info-item">
+                        <span class="info-icon">📧</span>
+                        <div class="info-details">
                             <h4>Email</h4>
                             <p>c.satendra1149@gmail.com</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div>
+                    <div class="info-item">
+                        <span class="info-icon">📱</span>
+                        <div class="info-details">
                             <h4>Phone</h4>
-                            <p>+9779807258278</p>
+                            <p>+977 9807258278</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div class="info-details">
                             <h4>Location</h4>
                             <p>Birgunj, Nepal</p>
                         </div>
                     </div>
                 </div>
-                <form action="https://formspree.io/f/meopaqrv" method="POST" class="contact-form">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
+                <form class="contact-form" action="https://formspree.io/f/meopaqrv" method="POST">
+                    <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+                    <input type="email" name="email" class="form-input" placeholder="Your Email" required>
                     <input type="text" name="_subject" value="New Contact from HomeTaste Flavours" hidden>
-                    <textarea name="message" placeholder="Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form> 
+                    <textarea name="message" class="form-textarea" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="form-button">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <div class="logo-icon">🏠</div>
-                        <span class="logo-text">HomeTaste Flavours</span>
-                    </div>
-                    <p class="footer-tagline">Your Home, Your Flavours, Delivered.</p>
-                    <p class="footer-description">
-                        Connecting families with professionals through authentic home-cooked meals. Delivering comfort, health, and taste across Nepal.
-                    </p>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span>🏠</span>
+                    <span>HomeTaste Flavours</span>
                 </div>
-                <!-- Quick Link Modal -->
-                <div class="footer-section">
-    <h4>Quick Links</h4>
-    <ul class="quick-links-list">
-        <li>
-            <a href="#home" class="quick-link" data-link="home">
-                <span class="link-icon">🏠</span>
-                <span class="link-name">Home</span>
-            </a>
-        </li>
-        <li>
-            <a href="#about" class="quick-link" data-link="about">
-                <span class="link-icon">ℹ️</span>
-                <span class="link-name">About</span>
-            </a>
-        </li>
-        <li>
-            <a href="#how-it-works" class="quick-link" data-link="how-it-works">
-                <span class="link-icon">⚙️</span>
-                <span class="link-name">How It Works</span>
-            </a>
-        </li>
-        <li>
-            <a href="#features" class="quick-link" data-link="features">
-                <span class="link-icon">✨</span>
-                <span class="link-name">Features</span>
-            </a>
-        </li>
-        <li>
-            <a href="#contact" class="quick-link" data-link="contact">
-                <span class="link-icon">📞</span>
-                <span class="link-name">Contact</span>
-            </a>
-        </li>
-    </ul>
-</div>
-                <div class="footer-section">
-                    <h4>Cities We Serve</h4>
-                    <ul class="city-list">
-                        <li class="city-item" data-city="Kathmandu">
-                            <span class="city-icon">🏛️</span> Birgunj
-                        </li>
-                        <li class="city-item" data-city="Birgunj">
-                            <span class="city-icon">🏭</span> Kathmandu
-                        </li>
-                        <li class="city-item" data-city="Pokhara">
-                            <span class="city-icon">🏔️</span> Pokhara
-                        </li>
-                    </ul>
-                    <p class="coming-soon">More cities coming soon!</p>
-                </div>
-                <!-- Social Media Modal -->
-                <div class="footer-section">
-    <h4>Connect With Us</h4>
-    <ul class="social-links-list">
-        <li>
-            <a href="#" class="social-link" data-social="facebook">
-                <span class="social-icon">📘</span>
-                <span class="social-name">Facebook</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="social-link" data-social="instagram">
-                <span class="social-icon">📷</span>
-                <span class="social-name">Instagram</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="social-link" data-social="twitter">
-                <span class="social-icon">🐦</span>
-                <span class="social-name">Twitter</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="social-link" data-social="linkedin">
-                <span class="social-icon">💼</span>
-                <span class="social-name">LinkedIn</span>
-            </a>
-        </li>
-    </ul>
-</div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 HomeTaste Flavours. All rights reserved.</p>
-                <p class="made-by">Made with ❤️ by <span class="creator-name">Satendra</span></p>
+                <p class="footer-tagline">Your Home, Your Flavours, Delivered.</p>
+                <p class="footer-desc">Revolutionizing food delivery in Nepal by connecting home kitchens with workplaces.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">🏠 About</a></li>
+                    <li><a href="#how-it-works">⚙️ How It Works</a></li>
+                    <li><a href="#features">✨ Features</a></li>
+                    <li><a href="#contact">📞 Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Cities</h4>
+                <ul class="footer-links">
+                    <li><a href="#cities">🏙️ Kathmandu</a></li>
+                    <li><a href="#cities">🌆 Birgunj</a></li>
+                    <li><a href="#cities">🏔️ Pokhara</a></li>
+                    <li><a href="#cities">🗺️ More Coming...</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="#">📘 Facebook</a></li>
+                    <li><a href="#">📷 Instagram</a></li>
+                    <li><a href="#">🐦 Twitter</a></li>
+                    <li><a href="#">💼 LinkedIn</a></li>
+                </ul>
             </div>
         </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 HomeTaste Flavours. All rights reserved.</p>
+            <p>Made with ❤️ by <span class="creator">Satendra</span></p>
+        </div>
     </footer>
-
-    <!-- USP Modal -->
-    <div id="uspModal" class="modal">
-        <div class="modal-overlay" onclick="closeUSPModal()"></div>
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeUSPModal()">&times;</span>
-            <div class="modal-icon" id="modalIcon"></div>
-            <h2 id="modalTitle"></h2>
-            <div class="modal-details" id="modalDetails"></div>
-            <div class="modal-stats" id="modalStats"></div>
-            <button class="modal-cta" onclick="scrollToDownload()">Get Started</button>
-        </div>
-    </div>
-
-    <!-- City Modal -->
-    <div id="cityModal" class="modal">
-        <div class="modal-overlay" onclick="closeCityModal()"></div>
-        <div class="modal-content city-modal-content">
-            <span class="close-modal" onclick="closeCityModal()">&times;</span>
-            <div class="modal-icon city-modal-icon" id="cityModalIcon"></div>
-            <h2 id="cityModalTitle"></h2>
-            <p class="city-tagline" id="cityTagline"></p>
-            <div class="city-stats-grid" id="cityStatsGrid"></div>
-            <div class="city-features" id="cityFeatures"></div>
-            <div class="city-coverage-map" id="cityCoverage"></div>
-            <button class="modal-cta" onclick="scrollToDownload()">Order Now in <span id="cityNameBtn"></span></button>
-        </div>
-    </div>
-    <!-- Quick Link Modal -->
-<div id="quickLinkModal" class="modal">
-    <div class="modal-overlay" onclick="closeQuickLinkModal()"></div>
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeQuickLinkModal()">&times;</span>
-        <div class="modal-icon" id="quickLinkIcon"></div>
-        <h2 id="quickLinkTitle"></h2>
-        <p class="quick-link-tagline" id="quickLinkTagline"></p>
-        <div class="modal-details" id="quickLinkDetails"></div>
-        <button class="modal-cta" onclick="navigateToSection()">Go to <span id="sectionName"></span></button>
-    </div>
-</div>
-
-<!-- Social Media Modal -->
-<div id="socialModal" class="modal">
-    <div class="modal-overlay" onclick="closeSocialModal()"></div>
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeSocialModal()">&times;</span>
-        <div class="modal-icon" id="socialIcon"></div>
-        <h2 id="socialTitle"></h2>
-        <p class="social-tagline" id="socialTagline"></p>
-        <div class="modal-details" id="socialDetails"></div>
-        <div class="social-handle-display" id="socialHandleDisplay"></div>
-        <button class="modal-cta" onclick="visitSocialMedia()">Follow Us on <span id="platformName"></span></button>
-    </div>
-</div>
 
     <script src="script.js"></script>
 </body>
