@@ -68,14 +68,14 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all cards and sections
 const animatedElements = document.querySelectorAll(
-    '.user-card, .feature-card, .usp-card, .step, .scenario'
+    '.user-card, .feature-card, .usp-card, .step'
 );
 
 animatedElements.forEach(el => {
     observer.observe(el);
 });
 
-/// ===== CONTACT FORM SUBMISSION =====
+// ===== CONTACT FORM SUBMISSION =====
 const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
@@ -116,6 +116,7 @@ if (contactForm) {
         }
     });
 }
+
 // ===== STATS COUNTER ANIMATION =====
 const stats = document.querySelectorAll('.stat-number');
 let animated = false;
@@ -166,9 +167,8 @@ downloadButtons.forEach(button => {
     button.addEventListener('click', (e) => {
         e.preventDefault();
         const platform = button.querySelector('.download-large').textContent;
-        alert(`Download for ${platform} coming soon! We're working hard to bring HomeTest Flavours to your device.`);
+        alert(`Download for ${platform} coming soon! We're working hard to bring HomeTaste Flavours to your device.`);
         
-        // In a real app, you'd track this click with analytics
         console.log(`User clicked download for: ${platform}`);
     });
 });
@@ -193,17 +193,6 @@ window.addEventListener('scroll', () => {
         }
     });
 });
-
-// ===== CONSOLE WELCOME MESSAGE =====
-console.log(
-    '%c🏠 Welcome to HomeTest Flavours! ',
-    'background: linear-gradient(135deg, #FF6B35, #4CAF50); color: white; font-size: 20px; padding: 10px; border-radius: 5px;'
-);
-console.log(
-    '%cYour Home, Your Flavours, Delivered.',
-    'color: #FF6B35; font-size: 16px; font-weight: bold;'
-);
-
 
 // ===== USP MODAL FUNCTIONALITY =====
 const uspData = {
@@ -296,17 +285,18 @@ function showUSPModal(title) {
     
     // Show modal with animation
     modal.classList.add('show');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
 }
 
 function closeUSPModal() {
     const modal = document.getElementById('uspModal');
     modal.classList.remove('show');
-    document.body.style.overflow = ''; // Restore scrolling
+    document.body.style.overflow = '';
 }
 
 function scrollToDownload() {
     closeUSPModal();
+    closeCityModal();
     setTimeout(() => {
         document.getElementById('download').scrollIntoView({ 
             behavior: 'smooth', 
@@ -315,11 +305,359 @@ function scrollToDownload() {
     }, 300);
 }
 
-// Close modal with Escape key
+// ===== CITY MODAL FUNCTIONALITY =====
+const cityData = {
+    'Kathmandu': {
+        icon: '🏛️',
+        tagline: 'The Heart of Nepal - Where Tradition Meets Taste',
+        stats: [
+            { number: '50+', label: 'Home Kitchens' },
+            { number: '200+', label: 'Daily Orders' },
+            { number: '15', label: 'Areas Covered' }
+        ],
+        features: [
+            'Thamel - Tourist hub with diverse food needs',
+            'Bouddha - Traditional Nepali and Newari cuisine',
+            'Patan - Heritage area with family kitchens',
+            'Jorpati - Residential zones with office workers',
+            'Baluwatar - Premium home-cooked meals',
+            'Bhaktapur - Authentic Newari specialties'
+        ],
+        coverage: '🗺️ Covering 15 major areas across Kathmandu Valley'
+    },
+    'Birgunj': {
+        icon: '🏭',
+        tagline: 'Gateway to India - Industrial City with Home Flavours',
+        stats: [
+            { number: '30+', label: 'Home Kitchens' },
+            { number: '150+', label: 'Daily Orders' },
+            { number: '8', label: 'Areas Covered' }
+        ],
+        features: [
+            'Ghantaghar - Central business district',
+            'Adarsh Nagar - Residential family zones',
+            'Industrial Area - Factory workers special meals',
+            'Railway Station Area - Quick lunch deliveries',
+            'College Road - Student-friendly meals',
+            'Murli Chowk - Mix of office and home areas'
+        ],
+        coverage: '🗺️ Serving 8 zones across Birgunj municipality'
+    },
+    'Pokhara': {
+        icon: '🏔️',
+        tagline: 'City of Lakes - Fresh Mountain Home Cooking',
+        stats: [
+            { number: '40+', label: 'Home Kitchens' },
+            { number: '180+', label: 'Daily Orders' },
+            { number: '12', label: 'Areas Covered' }
+        ],
+        features: [
+            'Lakeside - Tourist and expat community',
+            'New Road - Business and shopping center',
+            'Prithvi Chowk - Office worker hub',
+            'Srijana Chowk - Educational institutions',
+            'Chipledhunga - Residential family areas',
+            'Bagar - Local authentic Nepali cuisine'
+        ],
+        coverage: '🗺️ Delivering across 12 beautiful areas of Pokhara'
+    }
+};
+
+// Add click handlers to all city items
+document.querySelectorAll('.city-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const cityName = item.getAttribute('data-city');
+        showCityModal(cityName);
+    });
+});
+
+function showCityModal(cityName) {
+    const data = cityData[cityName];
+    if (!data) return;
+    
+    const modal = document.getElementById('cityModal');
+    
+    // Populate modal content
+    document.getElementById('cityModalIcon').textContent = data.icon;
+    document.getElementById('cityModalTitle').textContent = cityName;
+    document.getElementById('cityTagline').textContent = data.tagline;
+    document.getElementById('cityNameBtn').textContent = cityName;
+    
+    // Create stats cards
+    const statsHTML = data.stats.map(stat => `
+        <div class="city-stat-card">
+            <span class="city-stat-number">${stat.number}</span>
+            <span class="city-stat-label">${stat.label}</span>
+        </div>
+    `).join('');
+    document.getElementById('cityStatsGrid').innerHTML = statsHTML;
+    
+    // Create features list
+    const featuresHTML = `
+        <h3>Areas We Cover:</h3>
+        <ul>
+            ${data.features.map(feature => `<li>${feature}</li>`).join('')}
+        </ul>
+    `;
+    document.getElementById('cityFeatures').innerHTML = featuresHTML;
+    
+    // Add coverage info
+    document.getElementById('cityCoverage').textContent = data.coverage;
+    
+    // Show modal with animation
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCityModal() {
+    const modal = document.getElementById('cityModal');
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+// Close modals with Escape key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeUSPModal();
+        closeCityModal();
+    }
+});
+
+// ===== QUICK LINKS MODAL FUNCTIONALITY =====
+const quickLinkData = {
+    'home': {
+        icon: '🏠',
+        title: 'Home',
+        tagline: 'Your Gateway to Homemade Flavours',
+        details: [
+            'Discover HomeTaste Flavours - connecting families with professionals',
+            'See our impressive statistics: 1000+ happy users, 3 cities covered',
+            'Learn about our mission to bring home-cooked meals to offices',
+            'Explore how we\'re revolutionizing food delivery in Nepal',
+            'Get started with our simple download process'
+        ]
+    },
+    'about': {
+        icon: 'ℹ️',
+        title: 'About Us',
+        tagline: 'Revolutionizing Food Delivery in Nepal',
+        details: [
+            'Learn about our story and mission',
+            'Discover how we connect home kitchens with workplaces',
+            'Understand our commitment to fresh, homemade meals',
+            'See who we serve: office workers, families, and delivery partners',
+            'Find out why we\'re different from traditional food delivery'
+        ]
+    },
+    'how-it-works': {
+        icon: '⚙️',
+        title: 'How It Works',
+        tagline: 'Simple Steps to Home-Cooked Meals',
+        details: [
+            'Step-by-step guide to getting started',
+            'Learn how to register and set up your account',
+            'Understand the ordering and delivery process',
+            'See how we connect home kitchens, customers, and delivery partners',
+            'Discover our 6-step seamless delivery system'
+        ]
+    },
+    'features': {
+        icon: '✨',
+        title: 'Features',
+        tagline: 'Everything You Need for Meal Delivery',
+        details: [
+            'Secure login and user registration',
+            'Easy meal addition from home kitchens',
+            'Schedule and manage delivery orders',
+            'Real-time GPS tracking of your delivery',
+            'Dedicated partner dashboard',
+            'Push notifications to keep you updated'
+        ]
+    },
+    'contact': {
+        icon: '📞',
+        title: 'Contact Us',
+        tagline: 'We\'d Love to Hear From You',
+        details: [
+            'Get in touch with our team',
+            'Send us your questions, feedback, or suggestions',
+            'Find our email, phone, and location details',
+            'Fill out our contact form for quick response',
+            'We typically respond within 24 hours'
+        ]
+    }
+};
+
+// Add click handlers to quick links
+document.querySelectorAll('.quick-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const linkType = link.getAttribute('data-link');
+        showQuickLinkModal(linkType);
+    });
+});
+
+let currentSection = '';
+
+function showQuickLinkModal(linkType) {
+    const data = quickLinkData[linkType];
+    if (!data) return;
+    
+    currentSection = `#${linkType}`;
+    const modal = document.getElementById('quickLinkModal');
+    
+    document.getElementById('quickLinkIcon').textContent = data.icon;
+    document.getElementById('quickLinkTitle').textContent = data.title;
+    document.getElementById('quickLinkTagline').textContent = data.tagline;
+    document.getElementById('sectionName').textContent = data.title;
+    
+    const detailsList = data.details.map(detail => `<li>${detail}</li>`).join('');
+    document.getElementById('quickLinkDetails').innerHTML = `<ul>${detailsList}</ul>`;
+    
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuickLinkModal() {
+    const modal = document.getElementById('quickLinkModal');
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+function navigateToSection() {
+    closeQuickLinkModal();
+    setTimeout(() => {
+        document.querySelector(currentSection).scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    }, 300);
+}
+
+
+// ===== SOCIAL MEDIA MODAL FUNCTIONALITY =====
+const socialData = {
+    'facebook': {
+        icon: '📘',
+        title: 'Facebook',
+        tagline: 'Connect With Us on Facebook',
+        handle: '@HomeTasteFlavours',
+        url: 'https://facebook.com/HomeTasteFlavours',
+        details: [
+            'Follow us for daily meal inspiration and home cooking tips',
+            'See photos of delicious homemade meals from our community',
+            'Get exclusive updates about new cities and features',
+            'Join our community of food lovers and home chefs',
+            'Participate in contests and giveaways',
+            'Share your own HomeTaste experiences'
+        ]
+    },
+    'instagram': {
+        icon: '📷',
+        title: 'Instagram',
+        tagline: 'Follow Our Food Journey',
+        handle: '@hometaste_flavours',
+        url: 'https://instagram.com/hometaste_flavours',
+        details: [
+            'Beautiful food photography from home kitchens',
+            'Behind-the-scenes looks at our delivery process',
+            'Stories featuring our home chefs and their recipes',
+            'Daily meal ideas and cooking inspiration',
+            'User-generated content from happy customers',
+            'Live sessions with featured home chefs'
+        ]
+    },
+    'twitter': {
+        icon: '🐦',
+        title: 'Twitter',
+        tagline: 'Stay Updated in Real-Time',
+        handle: '@HomeTasteNP',
+        url: 'https://twitter.com/HomeTasteNP',
+        details: [
+            'Real-time updates about our service',
+            'Quick customer support and responses',
+            'News about expansion to new cities',
+            'Food trends and home cooking discussions',
+            'Engage with our team and community',
+            'Flash deals and limited-time offers'
+        ]
+    },
+    'linkedin': {
+        icon: '💼',
+        title: 'LinkedIn',
+        tagline: 'Professional Network & Careers',
+        handle: 'HomeTaste Flavours Nepal',
+        url: 'https://linkedin.com/company/hometaste-flavours',
+        details: [
+            'Learn about career opportunities at HomeTaste',
+            'Connect with our professional team',
+            'Read about our company mission and values',
+            'Discover partnership opportunities',
+            'See our impact on Nepal\'s food delivery industry',
+            'Join us in revolutionizing home food delivery'
+        ]
+    }
+};
+
+let currentSocialURL = '';
+
+// Add click handlers to social links
+document.querySelectorAll('.social-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const socialType = link.getAttribute('data-social');
+        showSocialModal(socialType);
+    });
+});
+
+function showSocialModal(socialType) {
+    const data = socialData[socialType];
+    if (!data) return;
+    
+    currentSocialURL = data.url;
+    const modal = document.getElementById('socialModal');
+    
+    document.getElementById('socialIcon').textContent = data.icon;
+    document.getElementById('socialTitle').textContent = data.title;
+    document.getElementById('socialTagline').textContent = data.tagline;
+    document.getElementById('platformName').textContent = data.title;
+    document.getElementById('socialHandleDisplay').textContent = data.handle;
+    
+    const detailsList = data.details.map(detail => `<li>${detail}</li>`).join('');
+    document.getElementById('socialDetails').innerHTML = `<ul>${detailsList}</ul>`;
+    
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSocialModal() {
+    const modal = document.getElementById('socialModal');
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+function visitSocialMedia() {
+    window.open(currentSocialURL, '_blank');
+    closeSocialModal();
+}
+
+// Update escape key handler to close all modals
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeUSPModal();
+        closeCityModal();
+        closeQuickLinkModal();
+        closeSocialModal();
     }
 });
 
 
+// ===== CONSOLE WELCOME MESSAGE =====
+console.log(
+    '%c🏠 Welcome to HomeTaste Flavours! ',
+    'background: linear-gradient(135deg, #FF6B35, #4CAF50); color: white; font-size: 20px; padding: 10px; border-radius: 5px;'
+);
+console.log(
+    '%cYour Home, Your Flavours, Delivered.',
+    'color: #FF6B35; font-size: 16px; font-weight: bold;'
+);
