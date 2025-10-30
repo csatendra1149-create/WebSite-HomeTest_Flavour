@@ -804,6 +804,7 @@ section {
 }
 
 /* ===== FOOTER ===== */
+/* ===== FOOTER ===== */
 .footer {
     background: var(--gray-900);
     color: var(--white);
@@ -812,7 +813,7 @@ section {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
     gap: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
 }
@@ -827,17 +828,28 @@ section {
 }
 
 .footer-tagline {
+    color: var(--orange);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+}
+
+.footer-description {
     color: var(--gray-400);
+    line-height: 1.8;
+    font-size: 0.95rem;
 }
 
 .footer-section h4 {
     font-weight: 700;
     margin-bottom: var(--spacing-md);
     color: var(--white);
+    font-size: 1.1rem;
 }
 
 .footer-section ul {
     list-style: none;
+    padding: 0;
 }
 
 .footer-section ul li {
@@ -847,32 +859,190 @@ section {
 .footer-section a {
     color: var(--gray-400);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .footer-section a:hover {
     color: var(--orange);
 }
 
-.social-links {
-    display: flex;
-    gap: var(--spacing-md);
+/* ===== CITY LIST STYLES ===== */
+.city-list {
+    list-style: none;
+    padding: 0;
 }
 
-.social-links a {
-    font-size: 1.5rem;
+.city-item {
+    margin-bottom: var(--spacing-sm);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gray-400);
+}
+
+.city-item:hover {
+    background: var(--gray-800);
+    transform: translateX(5px);
+    color: var(--orange);
+}
+
+.city-icon {
+    font-size: 1.3rem;
     transition: transform 0.3s ease;
 }
 
-.social-links a:hover {
+.city-item:hover .city-icon {
     transform: scale(1.2);
+    animation: bounce 0.5s ease;
 }
 
+@keyframes bounce {
+    0%, 100% { transform: scale(1.2) translateY(0); }
+    50% { transform: scale(1.2) translateY(-5px); }
+}
+
+.coming-soon {
+    margin-top: var(--spacing-md);
+    color: var(--gray-500);
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+/* ===== SOCIAL LINKS STYLES ===== */
+.social-links-list {
+    list-style: none;
+    padding: 0;
+}
+
+.social-links-list li {
+    margin-bottom: 0;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 10px;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.social-link:hover {
+    background: var(--gray-800);
+    border-left: 3px solid var(--orange);
+    transform: translateX(5px);
+}
+
+.social-name {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 3px;
+    transition: color 0.3s ease;
+}
+
+.social-handle {
+    color: var(--gray-500);
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover .social-name {
+    color: var(--orange);
+}
+
+.social-link:hover .social-handle {
+    color: var(--gray-400);
+}
+
+/* ===== FOOTER BOTTOM ===== */
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-lg);
     border-top: 1px solid var(--gray-700);
     color: var(--gray-400);
+}
+
+.footer-bottom p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links {
+    margin-top: var(--spacing-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.footer-links a {
+    color: var(--gray-500);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 5px 10px;
+}
+
+.footer-links a:hover {
+    color: var(--orange);
+}
+
+.footer-links span {
+    color: var(--gray-600);
+}
+
+/* ===== RESPONSIVE FOOTER ===== */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .city-list, 
+    .social-links-list {
+        text-align: left;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        gap: var(--spacing-md);
+    }
+    
+    .city-item,
+    .social-link {
+        padding: 8px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .footer-links span {
+        display: none;
+    }
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -1186,6 +1356,7 @@ section {
         font-size: 1.5rem;
     }
 }
+
 
 
 
