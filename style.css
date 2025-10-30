@@ -969,6 +969,24 @@ section {
 
 .footer-bottom p {
     margin-bottom: var(--spacing-sm);
+    font-size: 0.95rem;
+}
+
+.made-by {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+}
+
+.creator-name {
+    color: var(--orange);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.creator-name:hover {
+    color: var(--orange-light);
+    text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
 }
 
 .footer-links {
@@ -995,54 +1013,19 @@ section {
     color: var(--gray-600);
 }
 
-/* ===== RESPONSIVE FOOTER ===== */
-@media (max-width: 1024px) {
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--spacing-lg);
-    }
+/* ===== OLD SOCIAL LINKS (Keep for backward compatibility) ===== */
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
 }
 
-@media (max-width: 768px) {
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-    }
-    
-    .footer-section {
-        text-align: center;
-    }
-    
-    .city-list, 
-    .social-links-list {
-        text-align: left;
-        max-width: 300px;
-        margin: 0 auto;
-    }
-    
-    .footer-logo {
-        justify-content: center;
-    }
+.social-links a {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
 }
 
-@media (max-width: 480px) {
-    .footer-content {
-        gap: var(--spacing-md);
-    }
-    
-    .city-item,
-    .social-link {
-        padding: 8px;
-    }
-    
-    .footer-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .footer-links span {
-        display: none;
-    }
+.social-links a:hover {
+    transform: scale(1.2);
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -1356,6 +1339,7 @@ section {
         font-size: 1.5rem;
     }
 }
+
 
 
 
