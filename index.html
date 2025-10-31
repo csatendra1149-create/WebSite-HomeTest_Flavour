@@ -82,7 +82,7 @@
             </div>
             <div class="about-content">
                 <p class="about-text">
-                    HomeTaste Flavours is revolutionizing food delivery in Nepal by connecting home kitchens with workplaces. We deliver fresh, homemade meals across major cities like Kathmandu, Birgunj, and Pokhara—bringing the taste and comfort of home straight to your office. No more missing home-cooked meals during your busy workday!
+                    HomeTaste Flavours is revolutionizing food delivery in Nepal by connecting home kitchens with workplaces. We deliver fresh, homemade meals across major cities like Birgunj,Kathmandu and Pokhara—bringing the taste and comfort of home straight to your office. No more missing home-cooked meals during your busy workday!
                 </p>
             </div>
         </div>
@@ -215,13 +215,13 @@
             <div class="cities-grid">
                 <div class="city-card active">
                     <span class="city-icon">🏙️</span>
-                    <h3 class="city-name">Kathmandu</h3>
+                    <h3 class="city-name">Birgunj</h3>
                     <p class="city-desc">Capital city with full service coverage</p>
                     <span class="city-badge badge-active">✓ Active Now</span>
                 </div>
                 <div class="city-card active">
                     <span class="city-icon">🌆</span>
-                    <h3 class="city-name">Birgunj</h3>
+                    <h3 class="city-name">Kathmandu</h3>
                     <p class="city-desc">Gateway to Nepal - industrial hub</p>
                     <span class="city-badge badge-active">✓ Active Now</span>
                 </div>
@@ -256,7 +256,7 @@
                 <div class="expansion-content">
                     <h3 class="expansion-title">🗺️ More Cities Coming Soon!</h3>
                     <p class="expansion-subtitle">
-                        We're rapidly expanding! From Kathmandu Valley to Birgunj and beyond, we're bringing home-cooked meals to every corner of Nepal.
+                        We're rapidly expanding! From Birgunj Valley to Kathmandu and beyond, we're bringing home-cooked meals to every corner of Nepal.
                     </p>
 
                     <div class="stats-row">
@@ -291,7 +291,7 @@
                                 type="text" 
                                 id="cityRequestInput" 
                                 class="city-input" 
-                                placeholder="Enter your city (e.g., Kathmandu, Birgunj)..."
+                                placeholder="Enter your city..."
                             >
                             <button class="submit-button" onclick="submitCityRequest()">Submit</button>
                         </div>
@@ -317,32 +317,148 @@
                 <p class="section-subtitle">Unique advantages that set us apart</p>
             </div>
             <div class="benefits-grid">
-                <div class="benefit-card">
+                <div class="benefit-card" onclick="openPopup('popup1')">
                     <span class="benefit-icon">❤️</span>
                     <h3 class="benefit-title">Made with Love</h3>
                     <p class="benefit-desc">Meals from your own home kitchen, prepared with care and love</p>
+                    <span class="learn-more">Learn More →</span>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" onclick="openPopup('popup2')">
                     <span class="benefit-icon">🌆</span>
                     <h3 class="benefit-title">City-wide Service</h3>
                     <p class="benefit-desc">Available across major Nepali cities and rapidly expanding</p>
+                    <span class="learn-more">Learn More →</span>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" onclick="openPopup('popup3')">
                     <span class="benefit-icon">👩‍🍳</span>
                     <h3 class="benefit-title">Supports Home Chefs</h3>
                     <p class="benefit-desc">Not restaurants - real family-prepared food</p>
+                    <span class="learn-more">Learn More →</span>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" onclick="openPopup('popup4')">
                     <span class="benefit-icon">💰</span>
                     <h3 class="benefit-title">Affordable & Healthy</h3>
                     <p class="benefit-desc">More economical and nutritious than restaurant meals</p>
+                    <span class="learn-more">Learn More →</span>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card" onclick="openPopup('popup5')">
                     <span class="benefit-icon">🤝</span>
                     <h3 class="benefit-title">Family Connection</h3>
                     <p class="benefit-desc">Builds connection to home and family through food</p>
+                    <span class="learn-more">Learn More →</span>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Popup Modals -->
+    <div id="popup1" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('popup1')">&times;</span>
+            <div class="popup-icon">❤️</div>
+            <h2>Made with Love</h2>
+            <p>Every meal delivered through HomeTaste Flavours comes straight from a home kitchen where family members prepare food with the same care and attention they would for their own loved ones.</p>
+            <ul class="popup-list">
+                <li>🍲 Fresh ingredients chosen by home cooks</li>
+                <li>👨‍👩‍👧 Family recipes passed down through generations</li>
+                <li>🧂 No preservatives or artificial ingredients</li>
+                <li>🏡 Authentic home-style cooking methods</li>
+                <li>💝 Prepared with the same love as cooking for family</li>
+            </ul>
+            <p><strong>Experience the difference</strong> between restaurant food and a meal made with genuine care and traditional family values.</p>
+            
+            <div class="popup-cta">
+              <a href="#contact" class="popup-get-started-btn" onclick="closePopup('popup1')">GET STARTED</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup2" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('popup2')">&times;</span>
+            <div class="popup-icon">🌆</div>
+            <h2>City-wide Service</h2>
+            <p>HomeTaste Flavours is rapidly expanding across Nepal to bring the comfort of home-cooked meals to professionals everywhere.</p>
+            <ul class="popup-list">
+                <li>🏙️ Currently serving Kathmandu, Birgunj, and Pokhara</li>
+                <li>📍 Strategic delivery zones for maximum efficiency</li>
+                <li>⏰ Reliable delivery times across all areas</li>
+                <li>🗺️ Expanding to 15+ cities by end of 2025</li>
+                <li>🚀 Priority expansion to high-demand areas</li>
+            </ul>
+            <p><strong>No matter where you work,</strong> we're bringing home closer to you. Request your city if we're not there yet!</p>
+            
+            <div class="popup-cta">
+                <a href="#contact" class="popup-get-started-btn" onclick="closePopup('popup2')">GET STARTED</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup3" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('popup3')">&times;</span>
+            <div class="popup-icon">👩‍🍳</div>
+            <h2>Supports Home Chefs</h2>
+            <p>We empower home cooks and family kitchens by providing them a platform to share their culinary skills and earn income.</p>
+            <ul class="popup-list">
+                <li>👩‍🍳 Empowering homemakers with earning opportunities</li>
+                <li>🏠 Flexible work-from-home opportunities</li>
+                <li>📈 Fair compensation for home chefs</li>
+                <li>🤝 Building a community of trusted cooks</li>
+                <li>🎓 Training and support for quality standards</li>
+            </ul>
+            <p><strong>By choosing HomeTaste,</strong> you're supporting local families and home entrepreneurs while enjoying authentic home-cooked meals.</p>
+            
+            <div class="popup-cta">
+                <a href="#contact" class="popup-get-started-btn" onclick="closePopup('popup3')">GET STARTED</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup4" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('popup4')">&times;</span>
+            <div class="popup-icon">💰</div>
+            <h2>Affordable & Healthy</h2>
+            <p>Get nutritious, home-cooked meals at prices that won't break your budget—significantly cheaper than restaurant alternatives.</p>
+            <ul class="popup-list">
+                <li>💵 30-50% cheaper than restaurant delivery</li>
+                <li>🥗 Balanced, nutritious home-style meals</li>
+                <li>🚫 No hidden charges or excessive markups</li>
+                <li>🍱 Portion sizes that actually satisfy</li>
+                <li>📊 Transparent pricing with no surprises</li>
+            </ul>
+            <p><strong>Eat healthier, spend less.</strong> Home-cooked meals provide better nutrition and value compared to commercial alternatives.</p>
+            
+            <div class="popup-cta">
+                <a href="#contact" class="popup-get-started-btn" onclick="closePopup('popup4')">GET STARTED</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup5" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('popup5')">&times;</span>
+            <div class="popup-icon">🤝</div>
+            <h2>Family Connection</h2>
+            <p>Stay connected to home even when you're at work. Receive meals from your own family kitchen or experience the warmth of someone else's family cooking.</p>
+            <ul class="popup-list">
+                <li>🏡 Direct delivery from your family to your office</li>
+                <li>👨‍👩‍👧‍👦 Maintain family bonds despite busy schedules</li>
+                <li>💬 Special requests and dietary preferences honored</li>
+                <li>📝 Share feedback directly with your home cook</li>
+                <li>❤️ Feel the emotional comfort of home-cooked food</li>
+            </ul>
+            <p><strong>More than just food,</strong> it's about maintaining the connection to home, family, and the comforting taste of meals made with care.</p>
+            
+            <div class="popup-cta">
+                <a href="#contact" class="popup-get-started-btn" onclick="closePopup('popup5')">GET STARTED</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section id="download" class="cta-section">
         </div>
     </section>
 
@@ -437,8 +553,8 @@
             <div class="footer-section">
                 <h4>Cities</h4>
                 <ul class="footer-links">
-                    <li><a href="#cities">🏙️ Kathmandu</a></li>
-                    <li><a href="#cities">🌆 Birgunj</a></li>
+                    <li><a href="#cities">🏙️ Birgunj</a></li>
+                    <li><a href="#cities">🌆 Kathmandu</a></li>
                     <li><a href="#cities">🏔️ Pokhara</a></li>
                     <li><a href="#cities">🗺️ More Coming...</a></li>
                 </ul>
