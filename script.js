@@ -1,3 +1,24 @@
+// ===== MOBILE MENU TOGGLE =====
+const mobileToggle = document.querySelector('.mobile-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        mobileToggle.classList.toggle('active');
+    });
+}
+
+// ===== CLOSE MOBILE MENU WHEN LINK IS CLICKED =====
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            mobileToggle.classList.remove('active');
+        }
+    });
+});
+
 // ===== CITY REQUEST FUNCTIONS =====
 function fillCityName(city) {
     document.getElementById('cityRequestInput').value = city;
@@ -64,27 +85,6 @@ window.addEventListener('scroll', () => {
         navbar.style.background = 'rgba(255, 255, 255, 0.95)';
         navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
     }
-});
-
-// ===== MOBILE MENU TOGGLE =====
-const mobileToggle = document.querySelector('.mobile-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileToggle.classList.toggle('active');
-    });
-}
-
-// ===== CLOSE MOBILE MENU WHEN LINK IS CLICKED =====
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            mobileToggle.classList.remove('active');
-        }
-    });
 });
 
 // ===== FORM SUBMISSION HANDLER =====
@@ -244,3 +244,43 @@ console.log(
     '%cInterested in working with us? Email: c.satendra1149@gmail.com',
     'color: #4CAF50; font-size: 14px; margin-top: 5px;'
 );
+
+// ===== POPUP FUNCTIONALITY =====
+function openPopup(popupId) {
+    const popup = document.getElementById(popupId);
+    if (popup) {
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+function closePopup(popupId) {
+    const popup = document.getElementById(popupId);
+    if (popup) {
+        popup.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+}
+
+// Close popup when clicking outside the content
+document.addEventListener('DOMContentLoaded', () => {
+    const popups = document.querySelectorAll('.popup-overlay');
+    
+    popups.forEach(popup => {
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                closePopup(popup.id);
+            }
+        });
+    });
+});
+
+// Close popup with ESC key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const activePopup = document.querySelector('.popup-overlay.active');
+        if (activePopup) {
+            closePopup(activePopup.id);
+        }
+    }
+});
