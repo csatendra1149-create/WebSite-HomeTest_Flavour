@@ -45,6 +45,129 @@ function submitCityRequest() {
     }
 }
 
+// ===== USER MODAL FUNCTIONALITY =====
+const userModalData = {
+    office: {
+        icon: '👔',
+        title: 'Office Workers',
+        tagline: 'Never miss the taste of home during your workday',
+        benefits: [
+            'Get fresh, homemade meals delivered right to your office desk',
+            'Save time - no more long lunch breaks or meal prep worries',
+            'Enjoy nutritious, home-style food that gives you energy for the day',
+            'Stay connected to your family through their cooking',
+            'Affordable pricing - much cheaper than eating out daily',
+            'Customizable meals based on your dietary preferences'
+        ],
+        steps: [
+            'Download the HomeTaste Flavours app and create your account',
+            'Add your office address and set your lunch preferences',
+            'Your family uploads the day\'s menu in the morning',
+            'Select your meal and preferred delivery time',
+            'Get notified when your delivery partner is on the way',
+            'Enjoy a delicious home-cooked meal at work!'
+        ],
+        stats: '⭐ Join 1000+ professionals already enjoying home meals at work'
+    },
+    family: {
+        icon: '👨‍👩‍👧‍👦',
+        title: 'Urban Families',
+        tagline: 'Keep your loved ones connected through food',
+        benefits: [
+            'Send love and care to family members working away from home',
+            'Earn extra income by sharing your home-cooked meals',
+            'Ensure your loved ones eat healthy, home-made food',
+            'Flexible schedule - cook when convenient for you',
+            'Share your traditional recipes and cooking with others',
+            'Build stronger family bonds through regular meal sharing'
+        ],
+        steps: [
+            'Register as a home kitchen on HomeTaste Flavours',
+            'Upload your daily menu with photos and descriptions',
+            'Set your preferred delivery times and locations',
+            'Receive orders from your family members at work',
+            'Our delivery partner picks up the meal from your home',
+            'Your loved one gets fresh, homemade food at their office!'
+        ],
+        stats: '💚 200+ families are already sending love through meals daily'
+    },
+    delivery: {
+        icon: '🚴‍♂️',
+        title: 'Delivery Partners',
+        tagline: 'Earn on your own schedule while serving your community',
+        benefits: [
+            'Flexible working hours - work when it suits you',
+            'Earn competitive income with transparent pricing',
+            'No special skills required - just be reliable and friendly',
+            'Support local families and office workers in your area',
+            'Get paid instantly after each delivery',
+            'Be part of a growing community of partners'
+        ],
+        steps: [
+            'Sign up as a delivery partner through our app',
+            'Complete a quick verification process',
+            'Set your availability and preferred delivery areas',
+            'Receive delivery requests when orders are placed',
+            'Pick up meals from home kitchens in your area',
+            'Deliver fresh food to offices and earn money!'
+        ],
+        stats: '🚀 50+ active delivery partners making ₹15,000-30,000/month'
+    }
+};
+
+function openUserModal(userType) {
+    const data = userModalData[userType];
+    if (!data) return;
+    
+    const modal = document.getElementById('userModal');
+    
+    // Populate modal content
+    document.getElementById('userModalIcon').textContent = data.icon;
+    document.getElementById('userModalTitle').textContent = data.title;
+    document.getElementById('userModalTagline').textContent = data.tagline;
+    
+    // Create benefits list
+    const benefitsList = data.benefits.map(benefit => `<li>${benefit}</li>`).join('');
+    document.getElementById('userModalBenefits').innerHTML = benefitsList;
+    
+    // Create steps list
+    const stepsList = data.steps.map(step => `<li>${step}</li>`).join('');
+    document.getElementById('userModalSteps').innerHTML = stepsList;
+    
+    // Add stats
+    document.getElementById('userModalStats').textContent = data.stats;
+    
+    // Show modal
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeUserModal() {
+    const modal = document.getElementById('userModal');
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+function scrollToSection(sectionId) {
+    closeUserModal();
+    setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+    }, 300);
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeUserModal();
+    }
+});
+
 // ===== ENTER KEY SUPPORT FOR CITY REQUEST =====
 document.addEventListener('DOMContentLoaded', function() {
     const cityInput = document.getElementById('cityRequestInput');
