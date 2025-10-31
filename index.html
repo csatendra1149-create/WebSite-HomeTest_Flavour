@@ -94,24 +94,26 @@
             <div class="section-header">
                 <h2 class="section-title">Who We Serve</h2>
                 <p class="section-subtitle">Connecting the right people for delicious home-cooked meals</p>
-            </div>
-            <div class="users-grid">
-                <div class="user-card">
-                    <span class="user-icon">👔</span>
-                    <h3 class="user-title">Office Workers</h3>
-                    <p class="user-desc">Professionals working away from home who miss the taste and comfort of a home-cooked meal.</p>
-                </div>
-                <div class="user-card">
-                    <span class="user-icon">👨‍👩‍👧‍👦</span>
-                    <h3 class="user-title">Urban Families</h3>
-                    <p class="user-desc">Families who cook at home and want to send meals to their loved ones at work.</p>
-                </div>
-                <div class="user-card">
-                    <span class="user-icon">🚴‍♂️</span>
-                    <h3 class="user-title">Delivery Partners</h3>
-                    <p class="user-desc">Local individuals who handle pickups and ensure timely delivery of fresh meals.</p>
-                </div>
-            </div>
+<div class="users-grid">
+    <div class="user-card" onclick="openUserModal('office')">
+        <span class="user-icon">👔</span>
+        <h3 class="user-title">Office Workers</h3>
+        <p class="user-desc">Professionals working away from home who miss the taste and comfort of a home-cooked meal.</p>
+        <p class="click-hint">Click to learn more →</p>
+    </div>
+    <div class="user-card" onclick="openUserModal('family')">
+        <span class="user-icon">👨‍👩‍👧‍👦</span>
+        <h3 class="user-title">Urban Families</h3>
+        <p class="user-desc">Families who cook at home and want to send meals to their loved ones at work.</p>
+        <p class="click-hint">Click to learn more →</p>
+    </div>
+    <div class="user-card" onclick="openUserModal('delivery')">
+        <span class="user-icon">🚴‍♂️</span>
+        <h3 class="user-title">Delivery Partners</h3>
+        <p class="user-desc">Local individuals who handle pickups and ensure timely delivery of fresh meals.</p>
+        <p class="click-hint">Click to learn more →</p>
+    </div>
+</div>
         </div>
     </section>
 
@@ -574,7 +576,26 @@
             <p>Made with ❤️ by <span class="creator">Satendra</span></p>
         </div>
     </footer>
-
+<!-- User Modal Popup - Add before </body> -->
+<div id="userModal" class="modal">
+    <div class="modal-overlay" onclick="closeUserModal()"></div>
+    <div class="modal-content user-modal-content">
+        <span class="close-modal" onclick="closeUserModal()">&times;</span>
+        <div class="modal-icon" id="userModalIcon"></div>
+        <h2 id="userModalTitle"></h2>
+        <p class="modal-tagline" id="userModalTagline"></p>
+        <div class="modal-details">
+            <h3>Key Benefits:</h3>
+            <ul id="userModalBenefits"></ul>
+        </div>
+        <div class="modal-details">
+            <h3>How It Works For You:</h3>
+            <ul id="userModalSteps"></ul>
+        </div>
+        <div class="modal-stats" id="userModalStats"></div>
+        <button class="modal-cta" onclick="scrollToSection('download')">Get Started Now</button>
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
