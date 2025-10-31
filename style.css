@@ -358,6 +358,8 @@ section {
     text-align: center;
     transition: all 0.3s ease;
     box-shadow: var(--shadow);
+    cursor: pointer;  /* ADD THIS */
+    position: relative;  /* ADD THIS */
 }
 
 .user-card:hover, .feature-card:hover, .benefit-card:hover {
@@ -384,6 +386,19 @@ section {
     font-size: clamp(0.9rem, 1.8vw, 1rem);
 }
 
+/* ADD THIS NEW SECTION HERE */
+.click-hint {
+    margin-top: 15px;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.user-card:hover .click-hint {
+    opacity: 1;
+}
 /* ===== USERS SECTION ===== */
 .users {
     background: var(--light);
@@ -1367,5 +1382,198 @@ section {
         transition: right 0.4s ease;
         padding: 2rem;
     }
+    /* ===== USER MODAL STYLES ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInModal 0.3s ease;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 24px;
+    max-width: 650px;
+    width: 90%;
+    position: relative;
+    z-index: 10001;
+    animation: slideUpModal 0.4s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+@keyframes slideUpModal {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--gray);
+    transition: all 0.3s ease;
+    line-height: 1;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.close-modal:hover {
+    color: var(--primary);
+    background: var(--light);
+    transform: rotate(90deg);
+}
+
+.modal-icon {
+    font-size: 5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: var(--dark);
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.modal-tagline {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.modal-details {
+    margin: 30px 0;
+}
+
+.modal-details h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.modal-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-details li {
+    padding: 12px 0;
+    color: var(--dark);
+    font-size: 1.05rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.6;
+}
+
+.modal-details li::before {
+    content: '✓';
+    color: var(--secondary);
+    font-weight: bold;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.modal-stats {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin: 25px 0;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.modal-cta {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modal-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+}
+
+/* Modal Mobile Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 40px 25px;
+        width: 95%;
+    }
+    
+    .modal-icon {
+        font-size: 4rem;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .modal-tagline {
+        font-size: 1rem;
+    }
+    
+    .modal-details li {
+        font-size: 0.95rem;
+    }
+}
 
     
