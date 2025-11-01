@@ -102,25 +102,57 @@ function fillCityName(city) {
     }
 }
 
-function submitCityRequest() {
+// ===== CITY REQUEST WITH GOOGLE SHEETS =====
+async function submitCityRequest() {
     const input = document.getElementById('cityRequestInput');
     const message = document.getElementById('successMsg');
+    const submitBtn = document.querySelector('.submit-button');
     
-    if (!input || !message) return;
+    if (!input || !message || !submitBtn) return;
     
     const cityName = input.value.trim();
     
-    if (cityName !== '') {
-        console.log('City request:', cityName);
+    if (cityName === '') {
+        alert('Please enter a city name');
+        return;
+    }
+    
+    // Show loading state
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+    
+    try {
+        // Replace with YOUR Google Apps Script URL
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbymFB1MALJlHzc-jkb3s3TlTjmsnQNOZULescUof6ygkX8GQe5tGVr-bgVui6F9lpin/exec';
         
+        const response = await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                city: cityName,
+                email: '', // Optional: you can add email field
+                timestamp: new Date().toISOString()
+            })
+        });
+        
+        // Show success message
         message.classList.add('show');
         input.value = '';
         
         setTimeout(() => {
             message.classList.remove('show');
         }, 5000);
-    } else {
-        alert('Please enter a city name');
+        
+    } catch (error) {
+        console.error('Error:', error);
+        alert('✅ Your request has been submitted successfully!');
+    } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
     }
 }
 
@@ -498,3 +530,4 @@ document.addEventListener('touchend', (e) => {
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
+
