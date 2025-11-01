@@ -531,3 +531,76 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
+// ===== FLOATING CARDS POPUP FUNCTIONALITY =====
+
+document.addEventListener('DOMContentLoaded', () => {
+    const floatingElements = document.querySelectorAll('.floating-element');
+    
+    if (floatingElements.length >= 3) {
+        floatingElements[0].style.cursor = 'pointer';
+        floatingElements[0].addEventListener('click', () => {
+            openFloatingPopup('homeCokedPopup');
+        });
+        
+        floatingElements[1].style.cursor = 'pointer';
+        floatingElements[1].addEventListener('click', () => {
+            openFloatingPopup('fastDeliveryPopup');
+        });
+        
+        floatingElements[2].style.cursor = 'pointer';
+        floatingElements[2].addEventListener('click', () => {
+            openFloatingPopup('healthyFreshPopup');
+        });
+
+        floatingElements.forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+                this.style.boxShadow = '0 15px 50px rgba(255, 107, 53, 0.3)';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 10px 40px rgba(0,0,0,0.15)';
+            });
+        });
+    }
+});
+
+function openFloatingPopup(popupId) {
+    const popup = document.getElementById(popupId);
+    if (popup) {
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeFloatingPopup(popupId) {
+    const popup = document.getElementById(popupId);
+    if (popup) {
+        popup.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const popups = document.querySelectorAll('.floating-popup-overlay');
+    
+    popups.forEach(popup => {
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                closeFloatingPopup(popup.id);
+            }
+        });
+    });
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const activePopup = document.querySelector('.floating-popup-overlay.active');
+        if (activePopup) {
+            closeFloatingPopup(activePopup.id);
+        }
+    }
+});
+
+
